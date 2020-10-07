@@ -9,9 +9,6 @@ require (
 	github.com/gorilla/websocket v1.4.2
 	github.com/stretchr/testify v1.6.1
 	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0 // indirect
-	golang.org/x/net v0.0.0-20201006153459-a7d1128ccaa0 // indirect
 	golang.org/x/sys v0.0.0-20201006155630-ac719f4daadf // indirect
-	google.golang.org/genproto v0.0.0-20201006033701-bcad7cf615f2 // indirect
-	google.golang.org/grpc v1.32.0 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
 )
