@@ -1,13 +1,22 @@
 package router
 
 import (
+	"fmt"
 	"mygin/handler"
 
-	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+
+	gin "github.com/gin-gonic/gin"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
-func SetupRouter() *gin.Engine {
+func SetupRouter(port int) *gin.Engine {
 	router := gin.Default()
+
+	if mode := gin.Mode(); mode == gin.DebugMode {
+		config := ginSwagger.URL(fmt.Sprintf("http://localhost:%d/swagger/doc.json", port))
+		router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, config))
+	}
 
 	if mode := gin.Mode(); mode == gin.TestMode {
 		router.LoadHTMLGlob("./../view/*")

@@ -1,0 +1,95 @@
+host: localhost:8080
+info:
+  contact:
+    name: hulk.hsu
+  description: Gin swagger
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Gin swagger
+  version: "1.0"
+paths:
+  /hello:
+    get:
+      operationId: "1"
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 說Hello
+      tags:
+      - Hello
+  /hello/{id}:
+    delete:
+      operationId: "1"
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Delete Hello
+      tags:
+      - Hello
+  /user/{uid}:
+    get:
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: uid
+        in: path
+        name: uid
+        required: true
+        type: integer
+      produces:
+      - text/plain
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Get User Info
+      tags:
+      - User
+  /user/login:
+    post:
+      parameters:
+      - description: email
+        in: formData
+        name: email
+        required: true
+        type: string
+      - description: password
+        in: formData
+        name: password
+        required: true
+        type: string
+      - description: password-again
+        in: formData
+        name: password-again
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: User Login
+      tags:
+      - User
+swagger: "2.0"
